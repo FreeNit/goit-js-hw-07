@@ -52,12 +52,6 @@ galleryEl.insertAdjacentHTML('afterbegin', imagesWrapper);
 
 // ! 2 - Delegation and receiving url from big img (prevent default behavior for the link element)
 
-// * Assign basicLightbox instance to a variable
-
-let instance;
-
-console.log(instance);
-
 // * Prevent default behavior for the links <a>
 const links = document.querySelectorAll('.gallery__link');
 links.forEach((link) => {
