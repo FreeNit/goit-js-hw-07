@@ -28,7 +28,13 @@ const imagesWrapper = galleryItems.map(createGalleryItem).join('');
 
 galleryEl.insertAdjacentHTML('afterbegin', imagesWrapper);
 
-// ! 2 - Delegation (prevent default behavior for the link element)
+// ! 2 - Prevent default behavior for the link element, SimpleLightbox
+
+// * use SimpleLightbox library
+let lightbox = new SimpleLightbox('.gallery a', {
+  /* options */
+  captionDelay: 300,
+});
 
 // * Prevent default behavior for the links <a>
 const links = document.querySelectorAll('.gallery__link');
@@ -37,19 +43,3 @@ links.forEach((link) => {
     event.preventDefault();
   });
 });
-
-// * Delegation
-galleryEl.addEventListener('click', onTargetImgClick);
-
-function onTargetImgClick(event) {
-  if (event.target.nodeName !== 'IMG') {
-    return;
-  }
-
-  // * use SimpleLightbox library
-
-  let lightbox = new SimpleLightbox('.gallery a', {
-    /* options */
-    captionDelay: 300,
-  });
-}
